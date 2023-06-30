@@ -1,0 +1,267 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*Start Screen Declaration*/
+.start-screen-bg {
+  /*Adding the background image for the start screen*/
+  height: 100vh;
+  background-image: url('images/background/start-screen.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.top-text {
+  height: 230px;
+}
+
+.bottom-text {
+  width: auto;
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bottom-text input[value='Character'], input[value='Start Game'] {
+  padding: 10px;
+  color: #1E1E1E;
+  width: 170px;
+  border-radius: 10px;
+  background-color: #ac8753;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 2px 2px black;
+  transition: transform .3s;
+}
+
+.bottom-text input:hover {
+  background-color: #eccc51;
+  transform: scale(1.1);
+}
+
+
+/*Stage Screen*/
+
+.stage-screen{
+  /*Adding the background image for the stage screen*/
+  height: 100vh;
+  background-image: url('images/background/stage.webp');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  display: none;
+}
+
+.choice-container {
+  display: flex;
+  height: 400px;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 60px;
+}
+
+/*Designing the buttons for choices*/
+.choice-container .btn {
+  padding: 25px;
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  outline: none;
+  color: #fa0f12;
+  font-size: 20px;
+  font-weight: bolder;
+  border: 2px solid #ac8753;
+  width: 140px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  transition: all .5s ease;
+}
+
+.choice-container .btn:hover {
+  background-color: #1F1E1E;
+  color: #fcfcfa;
+  border: 3px solid #1F1E1E;
+  transform: scale(1.1);
+}
+
+.character-container {
+  height: 210px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.character-container .player{
+  width: 200px;
+  height: auto;
+  margin-left: 40px;
+}
+
+.character-container .computer {
+  margin-top: 10px;
+  width: 220px;
+  height: auto;
+  margin-right: 15px;
+}
+
+
+/*Styling the message text result*/
+.character-container #result-message {
+  color: #1F1E1E;
+  margin-top: 150px;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: fantasy;
+}
+
+/*Styling the healthbar display*/
+.character-container .healthbar{
+  display: flex;
+  width: 35px;
+  height: auto;
+}
+
+.character-container .comp-health-bar {
+  display: flex;
+  position: relative;
+  right: 30px;
+}
+
+.character-container .player-health-bar {
+  display: flex;
+  position: relative;
+  left: 40px;
+}
+
+/*Modal declaratiions*/
+.result-modal {
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: auto;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.result-modal .result-content {
+  background-color: #CBA86F;
+  width: 400px;
+  height: 250px;
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
+}
+
+.result-modal .result-content .result-text {
+  color: white;
+  font-size: 45px;
+  text-shadow: 2px 3px #1E1E1E;
+}
+
+.result-modal .result-content .result-quote {
+  font-size: 17px;
+  text-align: center;
+  font-family:'Lucida Sans';
+}
+
+.result-modal .result-content .playagain-btn{
+  padding: 10px;
+  width: 150px;
+  border-radius: 20px;
+  background-color: #1E1E1E;
+  color: white;
+  font-size: 15px;
+}
+
+.show-result {
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+/*Declaration for removing heart*/
+.remove-health {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+
+/*Animation for hurt*/
+.hurt {
+  animation: zoom-in-zoom-out 0.5s ease 1;
+}
+
+.hitted {
+  filter: grayscale(100%) sepia(74%) hue-rotate(316deg) saturate(822%) contrast(275%);
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+    rotate: -2deg;
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+
+/*player and computer shoot animation*/
+.player-choice-img {
+  bottom: 40px; 
+  left: 20%;
+  opacity: 0;
+}
+
+.computer-choice-img {
+  bottom: 40px; 
+  right: 20%;
+  opacity: 0;
+}
+
+.choice {
+  position: absolute;
+  width: 90px;
+}
+
+.shoot {
+  animation-name: shoot-effect; 
+  animation-duration: 1.5s; 
+  animation-fill-mode: forwards; 
+}
+
+@keyframes shoot-effect {
+  50% {
+      bottom: 30%; 
+      opacity: 1; 
+  }
+  100% {
+      bottom: 10%;
+      opacity: 0; 
+  }
+}

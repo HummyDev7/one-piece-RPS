@@ -1,1 +1,1 @@
-# one-piece-RPS
+# rock-paper-scissors
