@@ -22,9 +22,15 @@ let button = document.querySelectorAll(".btn");
 let accessModal = document.querySelector(".result-modal");
 let startButton = document.querySelector(".start-btn");
 let playAgainBtn = document.querySelector(".playagain-btn");
+let onButton = document.querySelector(".on-btn");
+let offButton = document.querySelector(".off-btn");
+let bgMusic = document.querySelector(".bg-music");
 
 let playerScore = 0;
 let computerScore = 0;
+
+let playerWinMusic = new Audio('images/audio/luffy-winner.mp3');
+let computerWinMusic = new Audio('images/audio/kaido-winner.mp3');
 
 //This function randomly select any quote in the array
 const quoteSelector = (toShuffle) => {
@@ -176,8 +182,6 @@ const selectWinner = ( playerChoice, computerChoice ) => {
       //Create a undefined behavaiour so in that way it will result as tie
       break;
   }
-
-  console.log(userWin);
   return userWin;
 
 };
@@ -186,9 +190,13 @@ const checkWinner = () => {
 
   if ( playerScore == 5 ) {
     showResult(false, true);
+    bgMusic.pause();
+    playerWinMusic.play();
 
   } else if ( computerScore == 5 ) {
     showResult(true, false);
+    bgMusic.pause();
+    computerWinMusic.play();
   }
 };
 
@@ -209,9 +217,6 @@ const checkWhoWin = ( winner ) => {
   } else if ( winner !== null ) {
     resultMessage( quoteSelector( tieText ) );
   }
-
-  console.log(playerScore);
-  console.log(computerScore);
 };
 
 const selectChoice = ( value ) => {
@@ -263,6 +268,8 @@ const disableButton = () => {
   });
 }
 
+//Eventlisteners
+
 //Selecting all of the button and iterating it
 button.forEach( ( buttons ) => {
 
@@ -280,5 +287,24 @@ startButton.addEventListener("click", function () {
 //this event listener will refresh the page and restart the game when clicked
 playAgainBtn.addEventListener("click", function () {
   window.location.reload();
+  //pause the music if the user click the play again button
+  playerWinMusic.pause();
+  computerWinMusic.pause();
 });
 
+onButton.addEventListener('click', function() {
+  onButton.style.display = 'none';
+  offButton.style.display = 'block'
+  bgMusic.pause();
+});
+
+offButton.addEventListener('click', function () {
+  offButton.style.display = 'none';
+  onButton.style.display = 'block';
+  bgMusic.play();
+});
+
+bgMusic.addEventListener("ended", () => {
+  bgMusic.currentTime = 0; 
+  bgMusic.play();
+});

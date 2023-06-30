@@ -257,11 +257,20 @@
 
 @keyframes shoot-effect {
   50% {
-      bottom: 30%; 
+      bottom: 25%; 
       opacity: 1; 
   }
   100% {
       bottom: 10%;
       opacity: 0; 
   }
+}
+
+.music-btn {
+  position: absolute;
+  top: 80%;
+}
+
+.on-btn {
+  display: none;
 }
