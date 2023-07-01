@@ -8,7 +8,7 @@
 .start-screen-bg {
   /*Adding the background image for the start screen*/
   height: 100vh;
-  background-image: url('images/background/start-screen.webp');
+  background-image: url('images-assets/background/start-screen.webp');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -35,10 +35,11 @@
   width: 170px;
   border-radius: 10px;
   background-color: #ac8753;
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: 500;
+  font-size: 22px;
   box-shadow: 2px 2px black;
   transition: transform .3s;
+  font-family: 'Irish Grover', cursive;
 }
 
 .bottom-text input:hover {
@@ -52,7 +53,7 @@
 .stage-screen{
   /*Adding the background image for the stage screen*/
   height: 100vh;
-  background-image: url('images/background/stage.webp');
+  background-image: url('images-assets/background/stage.webp');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
@@ -73,17 +74,21 @@
   padding: 25px;
   background-color: transparent;
   color: white;
-  border-radius: 10px;
+  border-radius: 50%;
   outline: none;
   color: #fa0f12;
   font-size: 20px;
   font-weight: bolder;
-  border: 2px solid #ac8753;
-  width: 140px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border: 2px solid #1F1E1E;
+  width: 115px;
+  height: 110px;
   transition: all .5s ease;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.8);
 }
 
+.choice-img {
+  width: 60px;
+}
 .choice-container .btn:hover {
   background-color: #1F1E1E;
   color: #fcfcfa;
@@ -101,7 +106,7 @@
 .character-container .player{
   width: 200px;
   height: auto;
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .character-container .computer {
@@ -116,9 +121,9 @@
 .character-container #result-message {
   color: #1F1E1E;
   margin-top: 150px;
-  font-size: 20px;
-  font-weight: 400;
-  font-family: fantasy;
+  font-size: 19px;
+  font-weight: bolder;
+  font-family: 'Nanum Gothic Coding', monospace;
 }
 
 /*Styling the healthbar display*/
@@ -131,13 +136,13 @@
 .character-container .comp-health-bar {
   display: flex;
   position: relative;
-  right: 30px;
+  right: 15px;
 }
 
 .character-container .player-health-bar {
   display: flex;
   position: relative;
-  left: 40px;
+  left: 35px;
 }
 
 /*Modal declaratiions*/
@@ -164,7 +169,7 @@
   width: 400px;
   height: 250px;
   border-radius: 20px;
-  padding: 25px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -174,14 +179,16 @@
 
 .result-modal .result-content .result-text {
   color: white;
-  font-size: 45px;
+  font-size: 60px;
   text-shadow: 2px 3px #1E1E1E;
+  font-family: 'VT323', monospace;
 }
 
 .result-modal .result-content .result-quote {
-  font-size: 17px;
+  font-size: 18px;
   text-align: center;
-  font-family:'Lucida Sans';
+  font-family: 'Nanum Gothic Coding', monospace;
+  font-weight: bolder;
 }
 
 .result-modal .result-content .playagain-btn{
@@ -190,7 +197,8 @@
   border-radius: 20px;
   background-color: #1E1E1E;
   color: white;
-  font-size: 15px;
+  font-size: 17px;
+  font-family: 'Irish Grover', cursive;
 }
 
 .show-result {
@@ -274,3 +282,4 @@
 .on-btn {
   display: none;
 }
+
