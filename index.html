@@ -6,46 +6,58 @@
   <script src="app.js" defer></script>
   <link rel="stylesheet" href="style.css">
   <title>One Piece RPS</title>
+  <!--Font for irish groove-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+  <!--Font for nanum gothic coding-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
+  <!--Font for VT23 pixel font-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="start-screen-bg" value="start">
     <div class="top-text"></div>
     <div class="bottom-text">
       <input type="button" value="Start Game" class="start-btn">
-      <input type="button" value="Character" class="character-btn">
-      <img class="on-btn music-btn" src="images/other assets/volume.png">
-      <img class="off-btn music-btn" src="images/other assets/volume-mute.png">
+      <input type="button" value="Character" class="character-btn" title="Coming Soon......">
+      <img class="on-btn music-btn" src="images-assets/other assets/volume.png">
+      <img class="off-btn music-btn" src="images-assets/other assets/volume-mute.png">
     </div>
   </div>
   <div class="stage-screen" value="stage">
     <div class="choice-container">
-      <button class="rock btn" value="rock">Rock</button>
-      <button class="paper btn" value="paper">Paper</button>
-      <button class="scissor btn" value="scissor">Scissor</button>
+      <button class="rock btn" value="rock"><img src="images-assets/choices/rock.png" class="choice-img"></button>
+      <button class="paper btn" value="paper"><img src="images-assets/choices/paper.png" class="choice-img"></button>
+      <button class="scissor btn" value="scissor"><img src="images-assets/choices/scissor.png" class="choice-img"</button>
     </div>
     <div class="character-container">
       <div class="player-char">
         <div class="player-health-bar">
-          <img class="player-health-5 healthbar" src="images/other assets/pixel-health.png">
-          <img class="player-health-4 healthbar" src="images/other assets/pixel-health.png">
-          <img class="player-health-3 healthbar" src="images/other assets/pixel-health.png">
-          <img class="player-health-2 healthbar" src="images/other assets/pixel-health.png">
-          <img class="player-health-1 healthbar" src="images/other assets/pixel-health.png">
+          <img class="player-health-5 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="player-health-4 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="player-health-3 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="player-health-2 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="player-health-1 healthbar" src="images-assets/other assets/pixel-health.png">
         </div>
-        <img class="player" src="images/Character/luffy.gif" alt="image of luffy">
+        <img class="player" src="images-assets/Character/luffy.gif" alt="image of luffy">
         <img class="player-choice-img choice">
       </div>
       <div id="result-message"></div>
       <div class="computer-char">
         <div class="comp-health-bar">
-          <img class="computer-health-1 healthbar" src="images/other assets/pixel-health.png">
-          <img class="computer-health-2 healthbar" src="images/other assets/pixel-health.png">
-          <img class="computer-health-3 healthbar" src="images/other assets/pixel-health.png">
-          <img class="computer-health-4 healthbar" src="images/other assets/pixel-health.png">
-          <img class="computer-health-5 healthbar" src="images/other assets/pixel-health.png">
+          <img class="computer-health-1 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="computer-health-2 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="computer-health-3 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="computer-health-4 healthbar" src="images-assets/other assets/pixel-health.png">
+          <img class="computer-health-5 healthbar" src="images-assets/other assets/pixel-health.png">
         </div>
         <img class="computer-choice-img choice">
-        <img class="computer" src="images/Character/kaido-dragon.gif" alt="image of katakuri">
+        <img class="computer" src="images-assets/Character/kaido-dragon.gif" alt="image of katakuri">
       </div>
     </div>
   </div>
@@ -56,6 +68,6 @@
       <button class="playagain-btn">Play Again</button>
     </div>
   </div>
-  <audio class="bg-music" src="images/audio/ウィーアー！_ONE PIECE 8bit.mp3"></audio>
+  <audio class="bg-music" src="images-assets/audio/bg-music.wav"></audio>
 </body>
 </html>
