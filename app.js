@@ -1,7 +1,7 @@
 //This array is for rock, paper and scissor values that the computer will select
 const choices = ["rock", "paper", "scissor"];
 
-//Arrays that contains lot of quote for winning and losing an tie
+//Arrays that contains lot of quote for winning and losing and tie
 const winningText = [
   "Unveiling victory, one gesture at a time.",
   "You triumphed, shattering your opponent's hopes and claiming victory.",
@@ -29,8 +29,10 @@ let bgMusic = document.querySelector(".bg-music");
 let playerScore = 0;
 let computerScore = 0;
 
-let playerWinMusic = new Audio('images/audio/luffy-winner.mp3');
-let computerWinMusic = new Audio('images/audio/kaido-winner.mp3');
+//Audio variables
+let playerWinMusic = new Audio('images-assets/audio/luffy-winner.wav');
+let computerWinMusic = new Audio('images-assets/audio/kaido-winner.wav');
+let damage = new Audio('images-assets/audio/damage.wav');
 
 //This function randomly select any quote in the array
 const quoteSelector = (toShuffle) => {
@@ -47,7 +49,7 @@ const typingEffect = ( element, speed, txt ) => {
     if (i < txt.toString().length) {
       element.append(txt.charAt(i));
       i++;
-
+      //What this does is empty the text content if the text reach its last length
       if ( i == txt.toString().length ) {
         setTimeout( () => { 
           element.textContent = " "; 
@@ -58,7 +60,7 @@ const typingEffect = ( element, speed, txt ) => {
       clearInterval( timer );
     }
   }, speed);
-}
+};
 
 //This function will be responsible for the choice of the computer it will randomly pick
 const computerSelection = function () {
@@ -78,10 +80,10 @@ let resultMessage = ( text ) => {
   let x = document.querySelector("#result-message");
   let spd = 25;
 
-  if (text != " ") {
-    typingEffect(x, spd, text);
+  if ( text != " " ) {
+    typingEffect( x, spd, text );
 
-  } else if (text == "" || text == " ") {
+  } else if ( text == "" || text == " " ) {
     console.error("Please input something string should not be empty");
   }
 };
@@ -93,12 +95,11 @@ const showResult = ( compWin, pWin ) => {
   let resText = document.querySelector(".result-text");
   let resQuote = document.querySelector(".result-quote");
 
-  if (compWin) {
+  if ( compWin ) {
     resText.textContent = "You Lose!";
-    resQuote.textContent =
-      "Our greatest glory is not in never falling, but in rising every time we fall.";
+    resQuote.textContent = "Our greatest glory is not in never falling, but in rising every time we fall.";
 
-  } else if (pWin) {
+  } else if ( pWin ) {
     resText.textContent = "You Win!";
     resQuote.textContent = "Winning isn't everything, it's the only thing.";
   }
@@ -151,14 +152,18 @@ const hurt = ( win ) => {
     setTimeout( ()=> { computerHurt.classList.remove("hurt")}, 200 );
     computerHurt.classList.add('hitted');
     setTimeout( ()=> { computerHurt.classList.remove("hitted")}, 200 );
+    damage.play();
+    damage.volume = 0.3;
 
   } else {
     userHurt.classList.add('hurt');
     setTimeout( ()=> { userHurt.classList.remove("hurt")}, 200 );
     userHurt.classList.add('hitted');
     setTimeout( ()=> { userHurt.classList.remove("hitted")}, 200 );
+    damage.play();
+    damage.volume = 0.3;
   }
-}
+};
 
 const selectWinner = ( playerChoice, computerChoice ) => {
 
@@ -242,13 +247,14 @@ const startGame = () => {
   toggleScreen( ".stage-screen", true );
 };
 
+//Function that responsible to shoot effect
 function shoot( choiceOfPlayer, choiceOfComputer ) {
 
   let playerHand = document.querySelector(".player-choice-img");
   let computerHand = document.querySelector(".computer-choice-img");
 
-  playerHand.src = `images/choices/${ choiceOfPlayer }.png`;
-  computerHand.src = `images/choices/${ choiceOfComputer }.png`;
+  playerHand.src = `images-assets/choices/${ choiceOfPlayer }.png`;
+  computerHand.src = `images-assets/choices/${ choiceOfComputer }.png`;
 
   playerHand.classList.add('shoot');
   setTimeout( ()=> { playerHand.classList.remove("shoot") }, 1000 );
@@ -269,7 +275,6 @@ const disableButton = () => {
 }
 
 //Eventlisteners
-
 //Selecting all of the button and iterating it
 button.forEach( ( buttons ) => {
 
@@ -292,6 +297,7 @@ playAgainBtn.addEventListener("click", function () {
   computerWinMusic.pause();
 });
 
+//Eventlisteners for background musics
 onButton.addEventListener('click', function() {
   onButton.style.display = 'none';
   offButton.style.display = 'block'
@@ -302,9 +308,12 @@ offButton.addEventListener('click', function () {
   offButton.style.display = 'none';
   onButton.style.display = 'block';
   bgMusic.play();
+  bgMusic.volume = 0.7;
 });
 
+//If the music ended then this eventlistener will loop the music and start in the begining again
 bgMusic.addEventListener("ended", () => {
   bgMusic.currentTime = 0; 
   bgMusic.play();
+  bgMusic.volume = 0.7;
 });
