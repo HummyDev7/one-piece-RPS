@@ -25,6 +25,7 @@ let playAgainBtn = document.querySelector(".playagain-btn");
 let onButton = document.querySelector(".on-btn");
 let offButton = document.querySelector(".off-btn");
 let bgMusic = document.querySelector(".bg-music");
+let footer = document.querySelector(".footer");
 
 let playerScore = 0;
 let computerScore = 0;
@@ -245,6 +246,7 @@ const startGame = () => {
   console.log( "start game" );
   toggleScreen( ".start-screen-bg", false );
   toggleScreen( ".stage-screen", true );
+  footer.style.display = 'none';
 };
 
 //Function that responsible to shoot effect

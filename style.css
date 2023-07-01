@@ -277,9 +277,26 @@
 .music-btn {
   position: absolute;
   top: 80%;
+  cursor: pointer;
 }
 
 .on-btn {
   display: none;
 }
 
+
+/*Footer Declarations*/
+.footer {
+  position: absolute;
+  top: 94%;
+  right: 46%;
+  display: flex;
+  font-size: 25px;
+  font-family: 'VT323', monospace;
+
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #1F1E1E;
+}
