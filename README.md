@@ -13,6 +13,9 @@
 
 * Can off and on background music
 * Have a start screen
+* Damage sound effect
+* Hurt effect
+* Modal Window for game result
 
 # What i learned
 
@@ -24,9 +27,11 @@
 * Learned how to create a modal window
 * How to show and remove something using display none
 * How to add sound effects
+* 
+<h2>Ideas to implement:</h2>
 
-  <h2>Ideas to implement:</h2>
-
-  * Can choose characters and background images
-  * Change the images of the rock, paper and scissor that is appropriate for the character skill
+* Can choose characters and background images
+* Change the images of the rock, paper and scissor that is appropriate for the character skill
+* Add modal windows before starting the game. Asking the user how many rounds
+* Add Game Mode
     
