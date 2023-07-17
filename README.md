@@ -1,4 +1,4 @@
-# rock-paper-scissors
+# The Odin Project | Rock Paper Scissor 
 
 * This project is the first javascript project i created it is related in the odin project course
 * live <a href="https://hummydev7.github.io/one-piece-RPS/" target="_blank">demo</a>
